@@ -1,0 +1,9 @@
+Struktura danych => sposob w jaki ja lacze dane w pamieci komputera albo jak prezentuje polaczenie danych
+
+Tablica:                                              Lista:
+  Stała wielkość. Zmiana wielkości                      Wielkość zmienia siędynamicznie.
+jest kosztowna.                                          
+  Usuwanie i wstawianie odbywa się                     Usuwanie i wstawianie są efektowne.
+nieefektownie.
+  Zoptymalizowane pod sortowanie.                       Sortowanie jest kosztowne.
+  Szybki dostęp sekwęcyjny.                            Wolniejszy dostęp sekwęcyjny.
