@@ -1,0 +1,6 @@
+Rekurencja odwołuje się sama do siebie
+
+Rekurencja możemy zastąpić literacje
+kazde wywołanie funkcji utworzy ramke te ramki pozniej trafiaja na stos.
+
+Wady                  Zalety
