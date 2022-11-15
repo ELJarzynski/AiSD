@@ -34,7 +34,6 @@ class LinkedList():
         temp.next = new_node
 
 
-
     def node(self, at: int) -> Node:
         temp = self.head
         for x in range(at):
@@ -51,6 +50,7 @@ class LinkedList():
         new_node.next = prev_node.next
         prev_node.next = new_node
 
+
     def len(self):
         temp = self.head
         wynik = 1
@@ -61,7 +61,6 @@ class LinkedList():
             temp = temp.next
             wynik += 1
         return wynik
-
 
 
     def remove(self, i):
@@ -75,14 +74,15 @@ class LinkedList():
             self.head = self.head.next
             return
 
-        node = self.head
+        temp = self.head
         ind = 1
-        while node.next != None:
-            prev = node
-            node = node.next
+        while temp.next != None:
+            prev = temp
+            temp = temp.next
             if ind == i:
-                prev.next = node.next
+                prev.next = temp.next
                 return
+
 
     def remove_last(self):
         temp = self.head
@@ -91,14 +91,16 @@ class LinkedList():
             temp = temp.next
         prev.next = None
 
+
     def print(self):
-        temp=self.head
-        while(temp):
+        temp = self.head
+        while temp:
             if temp.next is None:
                 print(temp.data)
             else:
                 print(temp.data,"-> ", end="")
-            temp=temp.next
+            temp = temp.next
+
 
 class Stack():
     def __init__(self):
@@ -143,9 +145,6 @@ class Queue:
                 print(temp.data, ", ", end="")
             temp = temp.next
 
-
-
-
 l = LinkedList()
 l2 = LinkedList()
 l3 = LinkedList()
@@ -173,8 +172,6 @@ l.remove_last()
 print("list after removed index ")
 l.print()
 
-
-
 #stos
 print("Stos:")
 stack = Stack()
@@ -197,6 +194,3 @@ queue.print()
 print(queue.peek())
 queue.dequeue()
 queue.print()
-
-
-
