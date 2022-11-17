@@ -2,7 +2,7 @@ from typing import Any, List, Callable, Union
 from Queue import Queue
 import graphviz
 
-dot = graphviz.Digraph('Tree')
+d = graphviz.Digraph('Tree')
 
 class TreeNode:
     def __init__(self, value: Any) -> None:
@@ -33,11 +33,10 @@ class TreeNode:
     def for_each_level_order(self, visit: Callable[['TreeNode'], None]):
         que = Queue()
         que.enqueue(self)
-
         while len(que) > 0:
-            p = que.dequeue().data
-            visit(p)
-            for child in p.children:
+            temp = que.dequeue().data
+            visit(temp)
+            for child in temp.children:
                 que.enqueue(child)
 
 
@@ -59,19 +58,18 @@ class TreeNode:
                 child.print()
 
 
-    def show(self, dot):
-        dot.node(str(self), str(self.value))
-        for x in self.children:
-            dot.edge(str(self), str(x))
-            x.show(dot)
-        return dot
+    def show(self, d):
+        d.node(str(self), str(self.value))
+        for child in self.children:
+            d.edge(str(self), str(child))
+            child.show(d)
+        return d
 
 
 class Tree:
-    root: TreeNode
-
     def __init__(self, value: Any):
-        self.root= TreeNode(value)
+        self.root = TreeNode(value)
+
 
     def add(self, value: Any, parent_name: Any) -> None:
         parent_name.children.append(TreeNode(value))
@@ -79,6 +77,7 @@ class Tree:
 
     def for_each_level_order(self, visit: Callable[['TreeNode'], None]) -> None:
             self.root.for_each_level_order(visit)
+
 
     def for_each_deep_first(self, visit: Callable[['TreeNode'], None]) -> None:
         if self.root != None:
@@ -102,4 +101,4 @@ print("---------")
 print(root.children[1].children[0].children[0].is_leaf())#False
 print(root.children[1].children[0].is_leaf())#True
 #graphviz
-root.show(dot).render(directory='doctest-output', view=True).replace('\\', '/')
+root.show(d).render(directory='doctest-output', view=True).replace('\\', '/')
