@@ -89,11 +89,14 @@ class Stack:
     def __init__(self):
         self.storage = LinkedList()
 
+    def __len__(self):
+        return len(self.storage)
+
     def push(self, element: Any):
         self.storage.push(element)
 
     def pop(self) -> Any:
-        self.storage.pop()
+        return self.storage.pop()
 
     def print(self):
         temp = self.storage.head
