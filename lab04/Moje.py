@@ -1,5 +1,6 @@
 from typing import Any, List, Callable, Union
 from Queue import Queue
+from LinkedList import *
 import graphviz
 
 dot = graphviz.Digraph('Tree')
@@ -35,7 +36,7 @@ class TreeNode:
         que.enqueue(self)
 
         while len(que) > 0:
-            p = que.dequeue().data
+            p = que.dequeue()
             visit(p)
             for child in p.children:
                 que.enqueue(child)
@@ -102,5 +103,4 @@ print("---------")
 print(root.children[1].children[0].children[0].is_leaf())#False
 print(root.children[1].children[0].is_leaf())#True
 #graphviz
-root.show(dot).render(directory='doctest-output', view=True).replace('\\', '/')
-
+#root.show(dot).render(directory='doctest-output', view=True).replace('\\', '/')
